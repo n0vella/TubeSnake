@@ -21,7 +21,7 @@ async function createZip() {
     fs.mkdirSync('releases')
   }
 
-  const outputFile = `releases/${name}_${version}.zip`
+  const outputFile = `releases/${name}_${version}.xpi`
   const output = fs.createWriteStream(outputFile)
   const archive = archiver('zip')
 
