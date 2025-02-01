@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --snake-color: #e5e7eb;
+}
+
+.apple {
+  animation-name: swell;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes swell {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ball {
+  @apply absolute z-30 rounded-full;
+
+  background-color: var(--snake-color);
+}
+
+.score {
+  color: var(--snake-color);
+}

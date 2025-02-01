@@ -1,0 +1,29 @@
+{
+    "name": "userscript-template",
+    "version": "0.0.2",
+    "type": "module",
+    "scripts": {
+        "build:watch": "cross-env WATCH=true vite build --watch",
+        "build": "vite build",
+        "server": "http-server -c5 dist",
+        "dev": "npm-run-all --parallel build:watch server"
+    },
+    "devDependencies": {
+        "@preact/preset-vite": "^2.9.0",
+        "@types/node": "^20.17.16",
+        "@violentmonkey/types": "^0.1.9",
+        "archiver": "^7.0.1",
+        "autoprefixer": "^10.4.20",
+        "cross-env": "^7.0.3",
+        "http-server": "^14.1.1",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.4.41",
+        "prettier-plugin-tailwindcss": "^0.6.11",
+        "tailwindcss": "^3.4.10",
+        "vite": "^5.4.2"
+    },
+    "dependencies": {
+        "@violentmonkey/shortcut": "^1.4.4",
+        "preact": "^10.23.2"
+    }
+}
