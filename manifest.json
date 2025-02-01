@@ -3,7 +3,7 @@
     "name": "TubeSnake",
     "version": "1.0.0",
     "description": "Snake never had to leave YouTube",
-    "homepage_url": "https://n0vella.vercel.app",
+    "homepage_url": "https://n0vella.github.io",
     "icons": {
         "512": "icon.png"
     },
@@ -26,5 +26,10 @@
             ],
             "all_frames": true
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "tubesnake@n0vella.github.io"
+        }
+    }
 }
