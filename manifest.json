@@ -8,14 +8,13 @@
         "512": "icon.png"
     },
     "permissions": [
-        "activeTab",
-        "https://www.youtube.com/*",
-        "https://www.tubepen.com/*"
+        "activeTab"
     ],
     "content_scripts": [
         {
             "matches": [
-                "https://www.youtube.com/*",
+                "https://www.youtube.com/watch?*",
+                "https://www.youtube.com/embed/*",
                 "https://www.youtube-nocookie.com/*"
             ],
             "js": [
