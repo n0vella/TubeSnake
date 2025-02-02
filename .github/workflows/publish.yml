@@ -49,6 +49,16 @@ jobs:
           asset_name: TubeSnake_${{ github.ref_name }}.xpi
           asset_content_type: application/zip
 
+      - name: Upload same file as zip (chrome)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: releases/TubeSnake_${{ github.ref_name  }}.xpi
+          asset_name: TubeSnake_${{ github.ref_name }}.zip
+          asset_content_type: application/zip
+
       - name: Upload firefox addon
         uses: wdzeng/firefox-addon@v1
         with:
