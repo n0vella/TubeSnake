@@ -47,9 +47,6 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
       target: 'esnext',
       minify: true,
       outDir: 'dist',
-      watch: {
-        include: 'src',
-      },
       lib: {
         entry: 'src/index.tsx',
         name: 'index',
