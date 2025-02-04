@@ -3,6 +3,7 @@ import { ConfigEnv, UserConfig, defineConfig } from 'vite'
 import archiver from 'archiver'
 import fs from 'fs'
 import { name, version } from './manifest.json'
+import tailwindcss from '@tailwindcss/vite'
 
 async function createZip() {
   console.log('Creating zip')
@@ -36,6 +37,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
   console.log(process.env)
   return {
     plugins: [
+      tailwindcss(),
       preact(),
       {
         name: 'Create Zip',
