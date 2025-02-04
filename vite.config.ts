@@ -34,7 +34,6 @@ async function createZip() {
 }
 
 export default defineConfig((mode: ConfigEnv): UserConfig => {
-  console.log(process.env)
   return {
     plugins: [
       tailwindcss(),
