@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "TubeSnake",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Snake never had to leave YouTube",
     "homepage_url": "https://n0vella.github.io",
     "icons": {
@@ -13,15 +13,14 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.youtube.com/watch?*",
-                "https://www.youtube.com/embed/*",
+                "https://www.youtube.com/*",
                 "https://www.youtube-nocookie.com/*"
             ],
             "js": [
                 "dist/index.js"
             ],
             "css": [
-                "dist/style.css"
+                "dist/tubesnake.css"
             ],
             "all_frames": true
         }
