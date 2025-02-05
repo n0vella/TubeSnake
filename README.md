@@ -33,3 +33,15 @@ Black screen video selected on purpose
 3. Go to [chrome://extensions](chrome://extensions/)
 4. Turn developer mode on
 5. Install unpacked extension, just select the unpacked folder
+
+## Contribute
+
+I know is just a simple addon, but if for whatever reason you liked the game and you would like to contribute you can buy me a cofee here 😀.
+
+  <a href="https://www.buymeacoffee.com/n0vella" data-goatcounter-click="donate/buymeacofee" target="_blank">
+    <img 
+    src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+    alt="Buy Me A Coffee"
+    height="60px"
+    />
+  </a>
