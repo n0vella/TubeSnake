@@ -78,6 +78,7 @@ export default function App() {
     }
 
     setBody(newBody)
+    setDirection('down')
   }
 
   useEffect(() => {
