@@ -8,6 +8,8 @@ const INITIAL_BODY_LENGHT = 4
 
 type Direction = 'up' | 'down' | 'left' | 'right'
 
+const storage = chrome.storage ? chrome.storage : browser.storage
+
 export default function App() {
   const [applePos, setApplePos] = useState({ x: 0, y: 0 })
   const [direction, setDirection] = useState<Direction>('down')
@@ -19,6 +21,7 @@ export default function App() {
   const nextDirection = useRef<Direction>()
   const [showScore, setShowScore] = useState(false)
   const [showDonate, setShowDonate] = useState(false)
+  const [maxScore, setMaxScore] = useState(0)
 
   function changeColor() {
     colorIndex.current = (colorIndex.current + 1) % COLORS.length
@@ -59,7 +62,8 @@ export default function App() {
 
   function resetSnake() {
     if (body.length > 0) {
-      updateScore(body.length - INITIAL_BODY_LENGHT, function ({ games }: { games: number }) {
+      updateScore(body.length - INITIAL_BODY_LENGHT, function ({ max, games }: { max: number; games: number }) {
+        setMaxScore(max)
         if ([50, 150, 300, 500, 1000].includes(games)) {
           setShowDonate(true)
         }
@@ -126,6 +130,8 @@ export default function App() {
 
     document.addEventListener('keydown', addListeners, { capture: true })
     resetSnake()
+
+    storage.local.get('max', ({ max }) => setMaxScore(max))
   }, [])
 
   useEffect(() => {
@@ -252,8 +258,10 @@ export default function App() {
         className="flex h-full w-full items-center justify-center"
       >
         {showScore && (
-          <div className="absolute top-2 flex w-full justify-start px-4 text-2xl">
-            <span className="score">{body.length - INITIAL_BODY_LENGHT}</span>
+          <div className="absolute top-2 flex w-full justify-start !px-6 text-2xl">
+            <span className="score">
+              {body.length - INITIAL_BODY_LENGHT} / {maxScore}
+            </span>
           </div>
         )}
 
