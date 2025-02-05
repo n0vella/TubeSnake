@@ -41,7 +41,7 @@ export function updateScore(
     total = total + score
     games = games + 1
 
-    console.log(`Score: ${score}. Max score: ${max}. Total games: ${games}`)
+    log(`Score: ${score}. Max score: ${max}. Total games: ${games}`)
 
     storage.local.set({
       max,
