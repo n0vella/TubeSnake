@@ -4,9 +4,14 @@
 </p>
 
 Did you ever play snake over a YouTube video?
-Yes. This feature existed, this extension aims to give it back.
+Yes. This was a YouTube out of the box feature, this extension aims to give it back.
 
-![screenshot](https://addons.mozilla.org/user-media/previews/full/313/313002.png?modified=1738417505)
+## Screenshots
+Black screen video selected on purpose
+<div align="center">
+    <img src="https://addons.mozilla.org/user-media/previews/full/313/313002.png" alt="logo" width="800"/>
+</div>
+
 
 ## How it works
 
@@ -15,7 +20,7 @@ Yes. This feature existed, this extension aims to give it back.
 - use "Q" to switch color, because some colors aren't visible on some backgrounds
 - use "E" if you want to see your score / max score, on the top left corner
 
-## How to install
+## Install extension
 
 ### Firefox
 
