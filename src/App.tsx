@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
+import { updateScore } from './utils'
 
 const HEIGHT = 70 // grid squares on height
 const INTERVAL = 40 // ms, less is faster
@@ -55,6 +56,10 @@ export default function App() {
   }
 
   function resetSnake() {
+    if (body.length > 0) {
+      updateScore(body.length - 4)
+    }
+
     loadApple()
     // snake stars from the middle
 
@@ -162,7 +167,7 @@ export default function App() {
   }, [direction])
 
   useEffect(() => {
-    if (!body.length) return
+    if (!body.length || !showGame) return
 
     const x = body[0].x
     const y = body[0].y
@@ -214,7 +219,7 @@ export default function App() {
       >
         {showScore && (
           <div className="absolute top-2 flex w-full justify-start px-4 text-2xl">
-            <span className="score">{body.length - 1}</span>
+            <span className="score">{body.length - 4}</span>
           </div>
         )}
 
