@@ -18,6 +18,7 @@ export default function App() {
   const colorIndex = useRef(0)
   const nextDirection = useRef<Direction>()
   const [showScore, setShowScore] = useState(false)
+  const [showDonate, setShowDonate] = useState(false)
 
   function changeColor() {
     colorIndex.current = (colorIndex.current + 1) % COLORS.length
@@ -58,7 +59,11 @@ export default function App() {
 
   function resetSnake() {
     if (body.length > 0) {
-      updateScore(body.length - INITIAL_BODY_LENGHT)
+      updateScore(body.length - INITIAL_BODY_LENGHT, function ({ games }: { games: number }) {
+        if ([50, 150, 300, 500, 1000].includes(games)) {
+          setShowDonate(true)
+        }
+      })
     }
 
     loadApple()
@@ -199,7 +204,34 @@ export default function App() {
     }
   }, [body, grid])
 
+  if (showDonate) {
+    return (
+      <div className="pointer-events-none absolute z-20 flex h-full w-full items-center justify-center">
+        <div className="pointer-events-auto flex flex-col items-center gap-1 rounded-md !bg-zinc-50 !p-6 text-zinc-900">
+          <div className="flex w-full justify-end">
+            <span className="cursor-pointer text-2xl hover:scale-110" onClick={() => setShowDonate(false)}>
+              ❌
+            </span>
+          </div>
+          <span className="line-clamp-2 text-center text-3xl">
+            😀If you like this game, please
+            <br />
+            consider support the developer
+          </span>
+          <a href="https://www.buymeacoffee.com/n0vella" data-goatcounter-click="donate/buymeacofee" target="_blank">
+            <img
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+              alt="Buy Me A Coffee"
+              class="!mt-3 h-16 rounded-xl shadow shadow-zinc-300 transition-transform hover:!scale-110"
+            />
+          </a>
+        </div>
+      </div>
+    )
+  }
+
   if (!showGame) return <></>
+
   return (
     <div className="pointer-events-none absolute z-20 flex h-full w-full">
       <div

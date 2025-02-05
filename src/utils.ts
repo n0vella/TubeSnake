@@ -32,7 +32,10 @@ export async function awaitElement(selector: CSS_Selector): Promise<Element> {
   })
 }
 
-export function updateScore(score: number) {
+export function updateScore(
+  score: number,
+  callback?: ({ max, total, games }: { max: number; total: number; games: number }) => void,
+) {
   storage.local.get(['max', 'total', 'games'], function ({ max = 0, total = 0, games = 0 }) {
     max = Math.max(score, max)
     total = total + score
@@ -45,5 +48,9 @@ export function updateScore(score: number) {
       total,
       games,
     })
+
+    if (callback) {
+      callback({ max, total, games })
+    }
   })
 }
