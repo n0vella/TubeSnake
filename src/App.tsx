@@ -4,6 +4,7 @@ import { updateScore } from './utils'
 const HEIGHT = 70 // grid squares on height
 const INTERVAL = 40 // ms, less is faster
 const COLORS = ['#e5e7eb', '#ef4444', '#22c55e', '#0ea5e9']
+const INITIAL_BODY_LENGHT = 4
 
 type Direction = 'up' | 'down' | 'left' | 'right'
 
@@ -57,7 +58,7 @@ export default function App() {
 
   function resetSnake() {
     if (body.length > 0) {
-      updateScore(body.length - 4)
+      updateScore(body.length - INITIAL_BODY_LENGHT)
     }
 
     loadApple()
@@ -66,12 +67,12 @@ export default function App() {
     let x = grid.x / 2
     let y = grid.y / 2
 
-    setBody([
-      { x, y },
-      { x, y: y - 1 },
-      { x, y: y - 2 },
-      { x, y: y - 3 },
-    ])
+    const newBody = []
+    for (let i = 0; i <= INITIAL_BODY_LENGHT; i++) {
+      newBody.push({ x, y: y - i })
+    }
+
+    setBody(newBody)
   }
 
   useEffect(() => {
@@ -219,7 +220,7 @@ export default function App() {
       >
         {showScore && (
           <div className="absolute top-2 flex w-full justify-start px-4 text-2xl">
-            <span className="score">{body.length - 4}</span>
+            <span className="score">{body.length - INITIAL_BODY_LENGHT}</span>
           </div>
         )}
 
