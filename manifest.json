@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "TubeSnake",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Snake never had to leave YouTube",
     "homepage_url": "https://n0vella.github.io",
     "icons": {
