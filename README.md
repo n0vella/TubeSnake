@@ -9,7 +9,7 @@ Yes. This was a YouTube out of the box feature, this extension aims to give it b
 ## Screenshots
 Black screen video selected on purpose
 <div align="center">
-    <img src="https://addons.mozilla.org/user-media/previews/full/313/313002.png" alt="logo" width="800"/>
+    <img src="https://addons.mozilla.org/user-media/previews/full/313/313278.png" alt="logo" width="800"/>
 </div>
 
 
