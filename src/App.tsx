@@ -89,6 +89,8 @@ export default function App() {
     function addListeners(e: KeyboardEvent) {
       // don't capture keys when writing in search bar
       if (e.target instanceof HTMLInputElement) return
+      // don't capture keys when writing in comments
+      if ((e.target as HTMLElement)?.id === 'contenteditable-root') return
 
       switch (e.key) {
         case 'a':
